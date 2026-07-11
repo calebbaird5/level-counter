@@ -18,6 +18,7 @@ export default defineConfig({
       manifest,
     }),
   ],
+  base: "Vite-React-Tailwind-Chadcn-Starter-App",
   server: {
     watch: { ignored: ["**/.flycheck_*"] },
   },
