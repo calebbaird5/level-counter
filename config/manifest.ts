@@ -11,13 +11,13 @@ const background = hslToHex(light.background);
 const foreground = hslToHex(light.foreground);
 
 export const manifest: Partial<ManifestOptions> = {
-  name: "Starter-App",
-  short_name: "starter",
-  description: "Launging platform for web apps",
+  name: "Level Counter",
+  short_name: "level-counter",
+  description: "A tool for scoring Munchkin",
   theme_color: background,
   background_color: foreground,
   display: "standalone",
-  start_url: "/Vite-React-Tailwind-Chadcn-Starter-App",
+  start_url: "/level-counter",
   icons: [
     {
       src: "app-192.png",

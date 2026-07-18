@@ -20,7 +20,7 @@ export default defineConfig({
       manifest,
     }),
   ],
-  base: "Vite-React-Tailwind-Chadcn-Starter-App",
+  base: "level-counter",
   server: {
     watch: { ignored: ["**/.flycheck_*"] },
   },

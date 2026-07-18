@@ -1,163 +1,146 @@
 import type { ThemeObject } from "./types";
 
-/**
- * Solarized Light
- *
- * Based on:
- * base3  #fdf6e3
- * base2  #eee8d5
- * base1  #93a1a1
- * base0  #839496
- * base00 #657b83
- * base01 #586e75
- *
- * Accents:
- * blue    #268bd2
- * cyan    #2aa198
- * green   #859900
- * yellow  #b58900
- * orange  #cb4b16
- * red     #dc322f
- */
-export const light: ThemeObject = {
-  background: "44 87% 94%", // base3
-  foreground: "192 13% 40%", // base00
-
-  border: "44 20% 82%", // base2/base1
-  input: "44 20% 82%",
-  ring: "205 69% 49%", // blue
-
-  primary: {
-    DEFAULT: "205 69% 49%", // blue
-    foreground: "44 87% 94%",
-    hover: "205 69% 43%",
-    active: "205 69% 36%",
-    muted: "205 40% 70%",
-    subtle: "205 50% 90%",
-  },
-
-  secondary: {
-    DEFAULT: "175 59% 40%", // cyan
-    foreground: "44 87% 94%",
-    hover: "175 59% 34%",
-    active: "175 59% 28%",
-    subtle: "175 40% 88%",
-  },
-
-  muted: {
-    DEFAULT: "44 25% 88%", // base2
-    foreground: "192 13% 52%", // base0
-    hover: "44 25% 84%",
-    active: "44 25% 78%",
-  },
+const door = {
+  DEFAULT: "47 83% 61%", // door.500
+  foreground: "30 35% 8%",
+  hover: "47 53% 49%", // door.600
+  active: "47 52% 37%", // door.700
+  muted: "47 76% 78%", // door.200
+  subtle: "47 82% 93%", // door.100
 
   accent: {
-    DEFAULT: "68 100% 30%", // green
-    foreground: "44 87% 94%",
-    hover: "68 100% 25%",
-    active: "68 100% 20%",
-    subtle: "68 50% 88%",
+    DEFAULT: "27 65% 55%", // doorBorder.500
+    hover: "27 55% 44%", // 600
+    active: "27 54% 33%", // 700
+    subtle: "24 64% 92%", // 100
   },
+} as const;
 
-  destructive: {
-    DEFAULT: "1 71% 52%", // red
-    foreground: "44 87% 94%",
-    hover: "1 71% 46%",
-    active: "1 71% 40%",
-    subtle: "1 60% 90%",
+const treasure = {
+  DEFAULT: "2 63% 38%", // treasure.500
+  foreground: "44 33% 97%",
+  hover: "2 62% 31%", // 600
+  active: "2 62% 23%", // 700
+  muted: "6 51% 76%", // 200
+  subtle: "6 52% 90%", // 100
+
+  accent: {
+    DEFAULT: "47 83% 61%", // treasureBorder.500
+    hover: "47 53% 49%", // 600
+    active: "47 52% 37%", // 700
+    subtle: "47 82% 93%", // 100
   },
-
-  surface: {
-    DEFAULT: "44 35% 96%", // base3
-    hover: "44 30% 90%",
-  },
-
-  card: {
-    DEFAULT: "44 35% 91%", // base2
-    foreground: "192 100% 15%", // base01
-  },
-
-  popover: {
-    DEFAULT: "44 35% 91%",
-    foreground: "192 100% 15%",
-  },
-
-  selection: "44 20% 82%",
 } as const;
 
 /**
- * Solarized Dark
- *
- * Based on:
- * base03 #002b36
- * base02 #073642
- * base01 #586e75
- * base00 #657b83
- * base0  #839496
- * base1  #93a1a1
+ * Treasure Theme - Light
  */
-export const dark: ThemeObject = {
-  background: "192 100% 11%", // base03
-  foreground: "194 13% 52%", // base0
+export const light: ThemeObject = {
+  background: "44 33% 97%", // cardBg.50
+  foreground: "21 63% 14%", // treasure.900
 
-  border: "192 50% 22%", // base02
-  input: "192 50% 22%",
-  ring: "205 80% 60%",
+  border: "40 31% 86%", // cardBg.200
+  input: "40 31% 86%",
+  ring: door.DEFAULT,
 
-  primary: {
-    DEFAULT: "205 80% 60%", // blue
-    foreground: "192 100% 11%",
-    hover: "205 80% 66%",
-    active: "205 80% 52%",
-    muted: "205 40% 45%",
-    subtle: "205 40% 20%",
-  },
+  primary: door,
+  door,
 
-  secondary: {
-    DEFAULT: "175 59% 45%", // cyan
-    foreground: "192 100% 11%",
-    hover: "175 59% 52%",
-    active: "175 59% 38%",
-    subtle: "175 40% 18%",
-  },
+  destructive: treasure,
+  treasure,
 
   muted: {
-    DEFAULT: "192 50% 18%", // base02
-    foreground: "194 13% 65%", // base1
-    hover: "192 50% 23%",
-    active: "192 50% 28%",
-  },
-
-  accent: {
-    DEFAULT: "68 100% 40%", // green
-    foreground: "192 100% 11%",
-    hover: "68 100% 48%",
-    active: "68 100% 32%",
-    subtle: "68 40% 16%",
-  },
-
-  destructive: {
-    DEFAULT: "1 71% 55%", // red
-    foreground: "192 100% 11%",
-    hover: "1 71% 62%",
-    active: "1 71% 45%",
-    subtle: "1 45% 18%",
+    DEFAULT: "40 31% 92%", // cardBg.100
+    foreground: "35 11% 39%", // cardBg.700
+    hover: "40 31% 86%", // cardBg.200
+    active: "38 30% 83%", // cardBg.300
   },
 
   surface: {
-    DEFAULT: "192 90% 15%", // between base03/base02
-    hover: "192 80% 19%",
+    DEFAULT: "44 33% 95%", // cardBg.100
+    hover: "40 31% 92%", // cardBg.200
   },
 
   card: {
-    DEFAULT: "192 70% 17%", // base02-ish
-    foreground: "194 13% 65%",
+    DEFAULT: "40 31% 92%", // cardBg.100
+    foreground: "21 63% 14%",
   },
 
   popover: {
-    DEFAULT: "192 70% 19%",
-    foreground: "194 13% 65%",
+    DEFAULT: "40 31% 92%",
+    foreground: "21 63% 14%",
   },
 
-  selection: "192 50% 22%",
+  selection: "40 31% 86%",
+} as const;
+
+const doorDark = {
+  DEFAULT: "47 83% 61%", // door.500
+  foreground: "35 11% 14%",
+  hover: "47 83% 69%", // door.400
+  active: "47 53% 49%", // door.600
+  muted: "47 52% 37%", // door.700
+  subtle: "47 52% 20%", // door.800
+
+  accent: {
+    DEFAULT: "27 65% 55%", // doorBorder.500
+    hover: "27 67% 63%", // 400
+    active: "27 55% 44%", // 600
+    subtle: "27 54% 22%", // 800
+  },
+} as const;
+
+const treasureDark = {
+  DEFAULT: "2 63% 38%", // treasure.500
+  foreground: "6 52% 94%",
+  hover: "2 43% 51%", // 400
+  active: "2 62% 31%", // 600
+  muted: "2 62% 23%", // 700
+  subtle: "2 60% 16%", // 800
+
+  accent: {
+    DEFAULT: "47 83% 61%", // treasureBorder.500
+    hover: "47 83% 69%", // 400
+    active: "47 53% 49%", // 600
+    subtle: "47 52% 20%", // 800
+  },
+} as const;
+
+export const dark: ThemeObject = {
+  background: "35 11% 14%", // cardBg.900
+  foreground: "6 52% 94%", // treasure.50
+
+  border: "36 11% 25%", // cardBg.800
+  input: "36 11% 25%",
+  ring: door.DEFAULT,
+
+  primary: doorDark,
+  door: doorDark,
+
+  destructive: treasureDark,
+  treasure: treasureDark,
+
+  muted: {
+    DEFAULT: "35 11% 18%",
+    foreground: "38 31% 74%",
+    hover: "36 11% 25%",
+    active: "35 11% 39%",
+  },
+
+  surface: {
+    DEFAULT: "35 11% 18%",
+    hover: "36 11% 25%",
+  },
+
+  card: {
+    DEFAULT: "36 11% 25%",
+    foreground: "6 52% 94%",
+  },
+
+  popover: {
+    DEFAULT: "36 11% 25%",
+    foreground: "6 52% 94%",
+  },
+
+  selection: "36 11% 25%",
 } as const;

@@ -1,4 +1,4 @@
-# Bank
+# Level Counter
 
 A modern React starter application built with **Vite**, **React**, **Tailwind CSS**, and **shadcn/ui**.
 
