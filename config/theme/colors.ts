@@ -1,118 +1,106 @@
 import type { ThemeObject } from "./types";
 
 const door = {
-  DEFAULT: "47 83% 61%", // door.500
+  DEFAULT: "47 83% 61%", // #eecf49
   foreground: "30 35% 8%",
-  hover: "47 53% 49%", // door.600
-  active: "47 52% 37%", // door.700
-  muted: "47 76% 78%", // door.200
-  subtle: "47 82% 93%", // door.100
-
-  accent: {
-    DEFAULT: "27 65% 55%", // doorBorder.500
-    hover: "27 55% 44%", // 600
-    active: "27 54% 33%", // 700
-    subtle: "24 64% 92%", // 100
-  },
+  hover: "47 100% 74%", // #ffff7b
+  active: "47 76% 41%", // #bc9d17
+  muted: "47 76% 78%",
+  subtle: "47 100% 92%",
+  border: "27 65% 55%", // #d7843f
 } as const;
 
 const treasure = {
-  DEFAULT: "2 63% 38%", // treasure.500
+  DEFAULT: "2 63% 38%", // #9f2824
   foreground: "44 33% 97%",
-  hover: "2 62% 31%", // 600
-  active: "2 62% 23%", // 700
-  muted: "6 51% 76%", // 200
-  subtle: "6 52% 90%", // 100
-
-  accent: {
-    DEFAULT: "47 83% 61%", // treasureBorder.500
-    hover: "47 53% 49%", // 600
-    active: "47 52% 37%", // 700
-    subtle: "47 82% 93%", // 100
-  },
+  hover: "2 53% 58%", // #d15a56
+  active: "2 100% 21%", // #6d0000
+  muted: "2 45% 70%",
+  subtle: "2 53% 90%",
+  border: "47 83% 61%", // #eecf49
 } as const;
 
-/**
- * Treasure Theme - Light
- */
-export const light: ThemeObject = {
-  background: "44 33% 97%", // cardBg.50
-  foreground: "21 63% 14%", // treasure.900
+const cardBackground = {
+  DEFAULT: "44 31% 78%", // #cdc2a3
+  foreground: "21 63% 14%",
+  hover: "44 100% 92%", // #fff4d5
+  active: "44 14% 52%", // #9b9071
+  subtle: "44 25% 96%",
+} as const;
 
-  border: "40 31% 86%", // cardBg.200
-  input: "40 31% 86%",
+export const light: ThemeObject = {
+  background: "36 38% 77%", // #dbcaaf
+  foreground: "21 63% 14%",
+
+  border: "44 20% 82%",
+  input: "44 20% 82%",
   ring: door.DEFAULT,
 
-  primary: door,
+  primary: {
+    DEFAULT: "27 45% 38%", // Rich warm brown
+    foreground: "44 33% 97%",
+    hover: "27 45% 44%",
+    active: "27 45% 30%",
+    muted: "27 35% 72%",
+    subtle: "27 45% 92%",
+  },
   door,
 
   destructive: treasure,
   treasure,
 
   muted: {
-    DEFAULT: "40 31% 92%", // cardBg.100
-    foreground: "35 11% 39%", // cardBg.700
-    hover: "40 31% 86%", // cardBg.200
-    active: "38 30% 83%", // cardBg.300
+    DEFAULT: "44 20% 88%",
+    foreground: "35 11% 39%",
+    hover: "44 20% 82%",
+    active: "44 20% 76%",
   },
 
   surface: {
-    DEFAULT: "44 33% 95%", // cardBg.100
-    hover: "40 31% 92%", // cardBg.200
+    DEFAULT: cardBackground.DEFAULT,
+    hover: cardBackground.hover,
   },
 
   card: {
-    DEFAULT: "40 31% 92%", // cardBg.100
+    DEFAULT: "44 25% 95%", // #e8e6db
     foreground: "21 63% 14%",
   },
 
   popover: {
-    DEFAULT: "40 31% 92%",
+    DEFAULT: "44 25% 95%",
     foreground: "21 63% 14%",
   },
 
-  selection: "40 31% 86%",
+  selection: "44 20% 82%",
 } as const;
 
 const doorDark = {
-  DEFAULT: "47 83% 61%", // door.500
+  DEFAULT: "47 83% 61%",
   foreground: "35 11% 14%",
-  hover: "47 83% 69%", // door.400
-  active: "47 53% 49%", // door.600
-  muted: "47 52% 37%", // door.700
-  subtle: "47 52% 20%", // door.800
-
-  accent: {
-    DEFAULT: "27 65% 55%", // doorBorder.500
-    hover: "27 67% 63%", // 400
-    active: "27 55% 44%", // 600
-    subtle: "27 54% 22%", // 800
-  },
+  hover: "47 100% 78%",
+  active: "47 76% 45%",
+  muted: "47 52% 37%",
+  subtle: "47 50% 20%",
+  border: "27 65% 55%",
 } as const;
 
 const treasureDark = {
-  DEFAULT: "2 63% 38%", // treasure.500
+  DEFAULT: "2 63% 45%",
   foreground: "6 52% 94%",
-  hover: "2 43% 51%", // 400
-  active: "2 62% 31%", // 600
-  muted: "2 62% 23%", // 700
-  subtle: "2 60% 16%", // 800
-
-  accent: {
-    DEFAULT: "47 83% 61%", // treasureBorder.500
-    hover: "47 83% 69%", // 400
-    active: "47 53% 49%", // 600
-    subtle: "47 52% 20%", // 800
-  },
+  hover: "2 53% 62%",
+  active: "2 100% 25%",
+  muted: "2 62% 30%",
+  subtle: "2 60% 16%",
+  border: "47 83% 61%",
 } as const;
 
 export const dark: ThemeObject = {
-  background: "35 11% 14%", // cardBg.900
-  foreground: "6 52% 94%", // treasure.50
+  background: "35 11% 14%",
+  foreground: "44 33% 90%",
 
-  border: "36 11% 25%", // cardBg.800
+  border: "36 11% 25%",
   input: "36 11% 25%",
-  ring: door.DEFAULT,
+  ring: doorDark.DEFAULT,
 
   primary: doorDark,
   door: doorDark,
@@ -121,10 +109,10 @@ export const dark: ThemeObject = {
   treasure: treasureDark,
 
   muted: {
-    DEFAULT: "35 11% 18%",
+    DEFAULT: "35 11% 20%",
     foreground: "38 31% 74%",
     hover: "36 11% 25%",
-    active: "35 11% 39%",
+    active: "35 11% 32%",
   },
 
   surface: {
@@ -133,13 +121,13 @@ export const dark: ThemeObject = {
   },
 
   card: {
-    DEFAULT: "36 11% 25%",
-    foreground: "6 52% 94%",
+    DEFAULT: "36 11% 22%",
+    foreground: "44 33% 90%",
   },
 
   popover: {
-    DEFAULT: "36 11% 25%",
-    foreground: "6 52% 94%",
+    DEFAULT: "36 11% 22%",
+    foreground: "44 33% 90%",
   },
 
   selection: "36 11% 25%",

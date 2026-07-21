@@ -1,5 +1,6 @@
-import { useEffect } from "react";
-import ThemePreview from "./components/ThemePreview";
+import { useEffect, useState } from "react";
+import { GameContext, type Player } from "./contexts/game.context";
+import Game from "./components/Game";
 
 function App() {
   useEffect(() => {
@@ -19,7 +20,16 @@ function App() {
       document.head.appendChild(newMeta);
     }
   }, []);
-  return <ThemePreview />;
+
+  const playersState = useState<Player[]>([]);
+
+  return (
+    <GameContext value={{ playersState }}>
+      <div className="w-screen h-screen bg-background relative">
+        <Game />
+      </div>
+    </GameContext>
+  );
 }
 
 export default App;
