@@ -1,9 +1,14 @@
-import { useGameContext } from "@/contexts/game.context";
+import { useGameContext, type Player } from "@/contexts/game.context";
 import PlayerCard from "./PlayerCard";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { DragDropProvider, useDroppable } from "@dnd-kit/react";
+import {
+  DragDropProvider,
+  useDroppable,
+  type DragEndEvent,
+} from "@dnd-kit/react";
 import type { ComponentProps } from "react";
+import { isSortable } from "@dnd-kit/react/sortable";
 
 const rails = [
   {
@@ -25,10 +30,26 @@ const rails = [
 ];
 
 export default function Game() {
-  const { addPlayer } = useGameContext();
+  const { addPlayer, setPlayers } = useGameContext();
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    if (event.canceled) return;
+
+    const { source, target } = event.operation;
+    const playerId = source?.id as string;
+    const targetRail = target?.id as Player["rail"];
+
+    setPlayers((players) => {
+      const next = players.map((player) =>
+        player.id === playerId ? { ...player, rail: targetRail } : player,
+      );
+
+      return next;
+    });
+  };
 
   return (
-    <DragDropProvider>
+    <DragDropProvider onDragEnd={handleDragEnd}>
       <div className="[--card-height:218px]">
         {rails.map(({ className, id }, i) => (
           <Rail key={i} className={className} id={id} />
