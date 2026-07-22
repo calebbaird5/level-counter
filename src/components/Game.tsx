@@ -8,7 +8,6 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/react";
 import type { ComponentProps } from "react";
-import { isSortable } from "@dnd-kit/react/sortable";
 
 const rails = [
   {
