@@ -5,13 +5,21 @@ import {
   type SetStateAction,
 } from "react";
 
+type Rail = "left" | "right" | "top" | "bottom";
 export interface Player {
   id: string;
   name: string;
   level: number;
   bonuses: number;
   modifiers: number;
-  rail: "left" | "right" | "top" | "bottom";
+  rail: Rail;
+}
+
+export function isRail(value: unknown): value is Rail {
+  return (
+    typeof value === "string" &&
+    ["left", "right", "bottom", "top"].includes(value)
+  );
 }
 
 export interface GameContextType {

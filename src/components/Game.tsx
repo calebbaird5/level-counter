@@ -1,4 +1,4 @@
-import { useGameContext, type Player } from "@/contexts/game.context";
+import { isRail, useGameContext } from "@/contexts/game.context";
 import PlayerCard from "./PlayerCard";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -36,7 +36,11 @@ export default function Game() {
 
     const { source, target } = event.operation;
     const playerId = source?.id as string;
-    const targetRail = target?.id as Player["rail"];
+    const targetRail = target?.id;
+    if (!isRail(targetRail)) {
+      console.error("not a valid rail: " + targetRail);
+      return;
+    }
 
     setPlayers((players) => {
       const next = players.map((player) =>
@@ -80,14 +84,19 @@ function Rail({ className, id, ...props }: RailProps) {
       className={cn(
         className,
         "absolute flex justify-around items-center transform-gpu",
-        { "bg-primary-subtle": isDropTarget },
+        { "bg-primary/10": isDropTarget },
       )}
       {...props}
     >
       {players
         .filter((player) => player.rail === id)
         .map((player, i) => (
-          <PlayerCard key={player.id} player={player} index={i} />
+          <PlayerCard
+            key={player.id}
+            player={player}
+            index={i}
+            className="touch-none select-none"
+          />
         ))}
     </div>
   );
